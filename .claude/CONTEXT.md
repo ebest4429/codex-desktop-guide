@@ -39,7 +39,7 @@ Codex Desktop의 전체 기능과 사용법을 다루는 공식 가이드 웹사
 | OS       | Windows 10 Pro           |
 | Shell    | bash (Git Bash)          |
 | 기술스택 | Next.js + Tailwind CSS |
-| 배포 | Vercel |
+| 배포 | GitHub Pages |
 
 ---
 
@@ -54,5 +54,10 @@ codex-desktop-guide/
 │   ├── hooks/        ← 훅 스크립트
 │   ├── commands/     ← 커스텀 커맨드
 │   └── skills/       ← 스킬 파일
-└── (src/ 등 — 기술스택 결정 후 확정)
+├── app/              ← Next.js App Router (pages + layouts)
+├── components/       ← 공통 컴포넌트 (Sidebar, Card, Accordion 등)
+├── styles/           ← 전역 스타일 (현재 globals.css는 app/ 내)
+├── public/           ← 정적 파일
+├── next.config.ts    ← Next.js 설정
+└── package.json
 ```

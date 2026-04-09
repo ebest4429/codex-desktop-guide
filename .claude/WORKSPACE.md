@@ -12,7 +12,7 @@
 |------|-----|
 | PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
 | 현재 Phase | Phase 2 — 기본 UI 구현 |
-| 상태 | 🔄 진행 중 — 항목 1~5 완료. 항목 6(Vercel 배포) 진행 필요 |
+| 상태 | 🔄 진행 중 — 항목 1~5 + GitHub 레포 완료. GitHub Pages 배포 설정 진행 필요 |
 | 현재 플랜 | `.claude/plans/codex-desktop-guide-phase2.md` |
 | 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
 
@@ -30,11 +30,25 @@ Phase 2 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide
 - 항목 5: 11개 라우트 빈 페이지 생성 (overview, usage/[slug], features/[slug], menu/[slug], 독립 6개)
 
 진행 예정:
-- 항목 6: GitHub 레포 생성 → 초기 커밋 → Vercel 연결 → 배포 확인
+- 항목 6: GitHub Pages 배포 설정 (GitHub Actions 워크플로 + 배포 확인)
+  - next.config.ts output: 'export' 설정 완료
+  - GitHub Actions 워크플로 파일(.github/workflows/deploy.yml) 작성 필요
+  - GitHub 레포 Pages 설정 활성화 필요
 
 ---
 
 ## 진행 이력
+
+### 2026-04-10 점검-연결·점검-구현 수정
+
+| 항목 | 내용 |
+|------|------|
+| 배포 방식 수정 | Vercel → GitHub Pages (마스터플랜·CONTEXT·Phase2플랜·WORKSPACE 4곳 일괄 수정) |
+| next.config.ts | output: 'export' 추가 (GitHub Pages 정적 빌드 필수) |
+| 동적 라우트 | generateStaticParams() 3개 파일 추가 (usage/features/menu) |
+| CONTEXT.md | 디렉토리 구조 실제 구현 반영 (app/components/styles/) |
+| 점검-scope.md | HOOK_GUIDE·SKILL_GUIDE 경로 수정 + 구현 대상 등록 |
+| GitHub 레포 | ebest4429/codex-desktop-guide public 생성 + push 완료 |
 
 ### 2026-04-09 Phase 2 전환
 

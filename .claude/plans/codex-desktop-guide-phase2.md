@@ -64,24 +64,25 @@
 - ✅ 메뉴소개 라우트 (`/menu/[slug]`)
 - ✅ 독립 섹션 라우트 (`/model`, `/context`, `/subscription`, `/skills`, `/threads`, `/mcp`)
 
-### 6. Vercel 배포 연결
+### 6. GitHub Pages 배포 연결
 
 > 취지: 배포 환경을 초기에 확보해야 이후 단계에서 실제 URL로 검증 가능.
+> 변경: 초기 플랜에 Vercel로 기록됐으나 실제 결정은 GitHub Pages였음. 누락된 결정 반영.
 
-- 🔄 GitHub 레포 생성 및 초기 커밋
-- 🔄 Vercel 프로젝트 연결
-- 🔄 배포 확인 (빈 페이지 정상 렌더링)
+- ✅ GitHub 레포 생성 및 초기 커밋 (ebest4429/codex-desktop-guide)
+- 🔄 GitHub Pages 배포 설정 (next.config.ts output: 'export' + GitHub Actions)
+- 🔲 배포 확인 (빈 페이지 정상 렌더링)
 
 ---
 
 ## 완료 조건
 
-- [ ] Next.js + Tailwind 초기 설정 완료 및 로컬 실행 확인
-- [ ] 전역 레이아웃 (사이드바 + 메인) 렌더링 확인
-- [ ] 사이드바 리사이즈 + 필터링 동작 확인
-- [ ] 공통 컴포넌트 5종 구현 완료
-- [ ] 모든 라우트 빈 페이지로 존재 및 사이드바 네비게이션 동작 확인
-- [ ] Vercel 배포 URL 확인
+- [x] Next.js + Tailwind 초기 설정 완료 및 로컬 실행 확인
+- [x] 전역 레이아웃 (사이드바 + 메인) 렌더링 확인
+- [x] 사이드바 리사이즈 + 필터링 동작 확인
+- [x] 공통 컴포넌트 5종 구현 완료
+- [x] 모든 라우트 빈 페이지로 존재 및 사이드바 네비게이션 동작 확인
+- [ ] GitHub Pages 배포 URL 확인
 
 ---
 

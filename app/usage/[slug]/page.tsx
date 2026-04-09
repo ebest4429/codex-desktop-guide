@@ -1,4 +1,13 @@
 // 사용법 동적 라우트 — Phase 3에서 콘텐츠 작성 예정
+// generateStaticParams: output: 'export' 정적 빌드 필수. Phase 3에서 실제 slug로 교체.
+export function generateStaticParams() {
+  return [
+    { slug: "basic" },
+    { slug: "chat" },
+    { slug: "files" },
+  ];
+}
+
 export default async function UsagePage({
   params,
 }: {

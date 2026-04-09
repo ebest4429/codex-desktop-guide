@@ -1,4 +1,23 @@
 // 메뉴소개 동적 라우트 — Phase 3에서 콘텐츠 작성 예정
+// generateStaticParams: output: 'export' 정적 빌드 필수. Phase 3에서 실제 slug로 교체.
+export function generateStaticParams() {
+  return [
+    { slug: "file" },
+    { slug: "edit" },
+    { slug: "view" },
+    { slug: "tools" },
+    { slug: "settings" },
+    { slug: "project" },
+    { slug: "threads" },
+    { slug: "model-select" },
+    { slug: "context-menu" },
+    { slug: "skills-menu" },
+    { slug: "mcp-menu" },
+    { slug: "help" },
+    { slug: "updates" },
+  ];
+}
+
 export default async function MenuPage({
   params,
 }: {

@@ -13,8 +13,8 @@
 - .claude/RULES.md
 - .claude/settings.json
 - .claude/WORKSPACE.md
-- .claude/HOOK_GUIDE.md
-- .claude/SKILL_GUIDE.md
+- .claude/hooks/HOOK_GUIDE.md
+- .claude/skills/SKILL_GUIDE.md
 
 ### 개별 훅 가이드
 - .claude/hooks/hooks-guide/ (폴더 전체)
@@ -35,8 +35,7 @@
 ## 구현 점검 대상 (/점검-구현 전용)
 
 ### 실제 구현 파일
-# 기술스택 결정 후 실제 구현 파일 경로를 여기에 추가
-# Phase 1 완료 후 채워 넣는다
-# 예시 (확정 후 주석 해제):
-# - src/
-# - public/
+- app/
+- components/
+- next.config.ts
+- package.json
