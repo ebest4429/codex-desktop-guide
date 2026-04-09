@@ -30,10 +30,11 @@ Phase 2 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide
 - 항목 5: 11개 라우트 빈 페이지 생성 (overview, usage/[slug], features/[slug], menu/[slug], 독립 6개)
 
 진행 예정:
-- 항목 6: GitHub Pages 배포 설정 (GitHub Actions 워크플로 + 배포 확인)
-  - next.config.ts output: 'export' 설정 완료
-  - GitHub Actions 워크플로 파일(.github/workflows/deploy.yml) 작성 필요
-  - GitHub 레포 Pages 설정 활성화 필요
+- 항목 6: GitHub Pages 배포 확인
+  - next.config.ts output: 'export' + basePath: '/codex-desktop-guide' + images.unoptimized: true 설정 완료
+  - .github/workflows/deploy.yml 작성 완료 (peaceiris/actions-gh-pages@v4)
+  - 로컬 빌드 검증 완료 (33페이지 정적 생성)
+  - GitHub push 후 Actions 실행 확인 + Pages 설정 활성화 필요
 
 ---
 
