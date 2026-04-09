@@ -34,14 +34,8 @@ yarn-debug.log*
 .claude-legacy/
 .claude/skills/claude-desktop-skills/
 
-# 소스 데이터 (로컬 참조용)
-.Source-Files/*.csv
-.Source-Files/*.xlsx
-.Source-Files/*.pdf
-.Source-Files/*.webp
-.Source-Files/*.jpg
-.Source-Files/*.jpeg
-.Source-Files/*.png
+# 소스 데이터 (로컬 참조용) — 하위 폴더 포함 전체 제외
+.Source-Files/
 
 # ZIP 산출물
 *.zip
