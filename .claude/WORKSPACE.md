@@ -1,0 +1,45 @@
+# WORKSPACE.md
+
+> 세션 시작 시 읽는다.
+> **기본 읽기**: 현재 위치 + 남은 과제까지.
+> **진행 이력**: 필요할 때만 추가 요청.
+
+---
+
+## 현재 위치
+
+| 항목 | 값 |
+|------|-----|
+| PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
+| 현재 Phase | Phase 2 — 기본 UI 구현 |
+| 상태 | 🔄 진행 중 — 항목 1~5 완료. 항목 6(Vercel 배포) 진행 필요 |
+| 현재 플랜 | `.claude/plans/codex-desktop-guide-phase2.md` |
+| 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
+
+---
+
+## 남은 과제
+
+Phase 2 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide-phase2.md` 참조.
+
+완료:
+- 항목 1: Next.js 16 + Tailwind v4 프로젝트 초기 설정, Pretendard 폰트, 다크테마 CSS 변수
+- 항목 2: 전역 레이아웃 (사이드바 + 메인 2단), 헤더/검색바 자리, 루트→/overview 리다이렉트
+- 항목 3: Sidebar 컴포넌트 (리사이즈 drag handle, 실시간 필터, 활성 표시)
+- 항목 4: Card, Accordion, Breadcrumb, CodeBlock, Badge 컴포넌트 5종
+- 항목 5: 11개 라우트 빈 페이지 생성 (overview, usage/[slug], features/[slug], menu/[slug], 독립 6개)
+
+진행 예정:
+- 항목 6: GitHub 레포 생성 → 초기 커밋 → Vercel 연결 → 배포 확인
+
+---
+
+## 진행 이력
+
+### 2026-04-09 Phase 2 전환
+
+| 항목 | 내용 |
+|------|------|
+| Phase 1 완료 | 기술스택·페이지구조·콘텐츠구조·디자인시스템·사전설계 전체 확정 |
+| WORKSPACE 아카이브 | WORKSPACE.codex-desktop-guide-phase1.md |
+| Phase 2 진입 | 사전설계(designs/codex-desktop-guide-phase2.md) 기반으로 구현 시작 |

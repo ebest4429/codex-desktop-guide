@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 의존성
+node_modules/
+
+# 빌드 산출물
+dist/
+out/
+_stage/
+
+# 환경변수
+.env*
+
+# 로그
+npm-debug.log*
+yarn-debug.log*
+
+# OS
+.DS_Store
+
+# Tool state (머신별 설정)
+.bkit/
+.gemini/
+.omc/
+
+# 세션 런타임 (커밋 불필요)
+.claude/.session-gate.json
+
+# 템플릿 (프로젝트별 로컬 참조용)
+.Template/
+.claude-legacy/
+.claude/skills/claude-desktop-skills/
+
+# 소스 데이터 (로컬 참조용)
+.Source-Files/*.csv
+.Source-Files/*.xlsx
+.Source-Files/*.pdf
+.Source-Files/*.webp
+.Source-Files/*.jpg
+.Source-Files/*.jpeg
+.Source-Files/*.png
+
+# ZIP 산출물
+*.zip
+
+# Next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# Coverage
+/coverage
