@@ -30,9 +30,9 @@
 > 취지: 기본 조작법. 신규 사용자가 두 번째로 보는 섹션.
 > 우선순위 1순위.
 
-- 🔲 `/usage/basic` — 기본 사용법
-- 🔲 `/usage/chat` — 대화 시작하기
-- 🔲 `/usage/files` — 파일 작업
+- ✅ `/usage/basic` — 기본 사용법
+- ✅ `/usage/chat` — 대화 시작하기
+- ✅ `/usage/files` — 파일 작업
 
 > 각 페이지 구조: Breadcrumb → 제목(h1) → 설명 → Accordion 상세
 
