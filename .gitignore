@@ -34,8 +34,9 @@ yarn-debug.log*
 .claude-legacy/
 .claude/skills/claude-desktop-skills/
 
-# 소스 데이터 (로컬 참조용) — 하위 폴더 포함 전체 제외
-.Source-Files/
+# 소스 데이터 — 임시 참조 이미지만 제외. 나머지 파일은 커밋 대상
+# 취지: .Source-Files/image/ 는 수정용 임시 이미지라 커밋 불필요. 그 외 파일은 포함.
+.Source-Files/image/
 
 # ZIP 산출물
 *.zip

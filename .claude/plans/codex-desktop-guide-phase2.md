@@ -71,7 +71,7 @@
 
 - ✅ GitHub 레포 생성 및 초기 커밋 (ebest4429/codex-desktop-guide)
 - ✅ GitHub Pages 배포 설정 (next.config.ts output: 'export' + basePath + GitHub Actions)
-- 🔄 배포 확인 (빈 페이지 정상 렌더링)
+- ✅ 배포 확인 (빈 페이지 정상 렌더링)
 
 ---
 
