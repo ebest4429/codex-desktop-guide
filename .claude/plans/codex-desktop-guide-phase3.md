@@ -15,12 +15,12 @@
 > 취지: 가장 먼저 보는 페이지. 제품 이해와 시작 흐름을 안내.
 > 우선순위 1순위.
 
-- 🔲 `/overview` — Codex Desktop이란?
+- ✅ `/overview` — Codex Desktop이란?
   - 제품 소개 (한 줄 설명 + 핵심 특징 카드)
   - 주요 기능 카드 목록 (Card 컴포넌트)
   - 시작하기 링크
 
-- 🔲 `/overview/get-started` — 빠른 시작
+- ✅ `/overview/get-started` — 빠른 시작
   - 설치 방법
   - 첫 실행 흐름
   - 다음 단계 안내
