@@ -12,7 +12,7 @@
 |------|-----|
 | PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
 | 현재 Phase | Phase 3 — 콘텐츠 구현 |
-| 상태 | 🔄 진행 중 — 개요(2) + 사용법(3) + 주요기능(5) + 구독/스킬/MCP(3) + 메뉴소개(13) 완료. 모델/컨텍스트/스레드 섹션 진행 예정 |
+| 상태 | ✅ 전체 29페이지 콘텐츠 완료. Phase 4 사전설계 존재 여부 확인 필요 |
 | 현재 플랜 | `.claude/plans/codex-desktop-guide-phase3.md` |
 | 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
 
