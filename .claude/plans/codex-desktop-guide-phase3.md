@@ -61,19 +61,19 @@
 > 취지: 각 메뉴 항목 상세 설명. 참조 문서 성격.
 > 우선순위 3순위.
 
-- 🔲 `/menu/file` — 파일
-- 🔲 `/menu/edit` — 편집
-- 🔲 `/menu/view` — 보기
-- 🔲 `/menu/tools` — 도구
-- 🔲 `/menu/settings` — 설정
-- 🔲 `/menu/project` — 프로젝트
-- 🔲 `/menu/threads` — 스레드
-- 🔲 `/menu/model-select` — 모델 선택
-- 🔲 `/menu/context-menu` — 컨텍스트
-- 🔲 `/menu/skills-menu` — 스킬
-- 🔲 `/menu/mcp-menu` — MCP
-- 🔲 `/menu/help` — 도움말
-- 🔲 `/menu/updates` — 업데이트
+- ✅ `/menu/file` — 파일
+- ✅ `/menu/edit` — 편집
+- ✅ `/menu/view` — 보기
+- ✅ `/menu/tools` — 도구
+- ✅ `/menu/settings` — 설정
+- ✅ `/menu/project` — 프로젝트
+- ✅ `/menu/threads` — 스레드
+- ✅ `/menu/model-select` — 모델 선택
+- ✅ `/menu/context-menu` — 컨텍스트
+- ✅ `/menu/skills-menu` — 스킬
+- ✅ `/menu/mcp-menu` — MCP
+- ✅ `/menu/help` — 도움말
+- ✅ `/menu/updates` — 업데이트
 
 > 각 페이지 구조: Breadcrumb → 메뉴명 → 메뉴 항목 목록(Accordion)
 
