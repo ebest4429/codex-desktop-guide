@@ -12,7 +12,7 @@
 |------|-----|
 | PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
 | 현재 Phase | Phase 4 — 검색 기능 + 완성 + 배포 |
-| 상태 | 🔄 진행 중 — 모바일 반응형 보완 완료. 전체 QA 예정 |
+| 상태 | ✅ 완료 — 전체 Phase 완료. 프로젝트 배포 완성 |
 | 현재 플랜 | `.claude/plans/codex-desktop-guide-phase4.md` |
 | 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
 
@@ -20,14 +20,9 @@
 
 ## 남은 과제
 
-Phase 4 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide-phase4.md` 참조.
+모든 작업 완료. 추가 요청 시 진행.
 
-1. 전체 QA — 29페이지 전수 확인
-3. 성능 최적화 (선택)
-4. 최종 배포 확인
-
-> **검색 기능**: 포기 결정 (2026-04-12). 29페이지 규모에서 사이드바로 충분히 탐색 가능.
-> **커스텀 도메인**: 사용자 결정 후 진행.
+> **배포 URL**: https://ebest4429.github.io/codex-desktop-guide/
 
 ---
 
