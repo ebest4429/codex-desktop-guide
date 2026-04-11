@@ -12,7 +12,7 @@
 |------|-----|
 | PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
 | 현재 Phase | Phase 4 — 검색 기능 + 완성 + 배포 |
-| 상태 | 🔲 Phase 4 시작 전. 검색 라이브러리 협의 필요 |
+| 상태 | 🔄 진행 중 — UI 개선 완료(TitleBar·sticky·사이드바 검색 제거). 검색 기능 구현 예정 |
 | 현재 플랜 | `.claude/plans/codex-desktop-guide-phase4.md` |
 | 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
 

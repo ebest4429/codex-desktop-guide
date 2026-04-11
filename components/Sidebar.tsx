@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+// Sidebar — 네비게이션 전용
+// 취지: 타이틀 영역에 검색창 통합 후 사이드바 검색창·필터 로직 완전 제거.
+//       순수 네비게이션 목록만 유지. 리사이즈 기능은 유지.
+
+import { useRef, useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-// ===================================================
-// 네비게이션 데이터
-// Phase 3에서 실제 콘텐츠 slug로 업데이트 예정.
-// 현재는 Phase 2 구조 검증용 플레이스홀더.
-// ===================================================
 const MAIN_NAV = [
   {
     title: "개요",
@@ -70,37 +69,22 @@ const SIDEBAR_MAX_WIDTH = 400;
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const [filter, setFilter] = useState("");
   const [width, setWidth] = useState(SIDEBAR_DEFAULT_WIDTH);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const startWidth = useRef(0);
 
-  const query = filter.toLowerCase().trim();
-
-  // 필터링 — 섹션 내 항목 중 하나라도 매칭되면 섹션 표시
-  const filteredMain = MAIN_NAV.map((section) => ({
-    ...section,
-    items: section.items.filter(
-      (item) =>
-        query === "" ||
-        item.label.toLowerCase().includes(query) ||
-        section.title.toLowerCase().includes(query)
-    ),
-  })).filter((section) => section.items.length > 0);
-
-  const filteredIndependent = INDEPENDENT_NAV.filter(
-    (item) => query === "" || item.label.toLowerCase().includes(query)
-  );
-
   // 리사이즈 핸들러
-  const onMouseDown = useCallback((e: React.MouseEvent) => {
-    isDragging.current = true;
-    startX.current = e.clientX;
-    startWidth.current = width;
-    document.body.style.cursor = "col-resize";
-    document.body.style.userSelect = "none";
-  }, [width]);
+  const onMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      isDragging.current = true;
+      startX.current = e.clientX;
+      startWidth.current = width;
+      document.body.style.cursor = "col-resize";
+      document.body.style.userSelect = "none";
+    },
+    [width]
+  );
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
@@ -130,7 +114,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="relative h-full flex-shrink-0 flex flex-col border-r"
+      className="relative h-full flex-shrink-0 flex flex-col border-r overflow-y-auto"
       style={{
         width,
         minWidth: SIDEBAR_MIN_WIDTH,
@@ -139,29 +123,10 @@ export default function Sidebar() {
         borderColor: "var(--border)",
       }}
     >
-      {/* 필터 입력창 */}
-      <div
-        className="flex-shrink-0 p-3 border-b"
-        style={{ borderColor: "var(--border)" }}
-      >
-        <input
-          type="text"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          placeholder="메뉴 검색..."
-          className="w-full h-8 rounded-md px-3 text-sm outline-none"
-          style={{
-            backgroundColor: "var(--bg-tertiary)",
-            color: "var(--text-primary)",
-            border: "1px solid var(--border)",
-          }}
-        />
-      </div>
-
       {/* 네비게이션 목록 */}
-      <nav className="flex-1 overflow-y-auto py-2">
+      <nav className="flex-1 py-3">
         {/* 메인 섹션 */}
-        {filteredMain.map((section) => (
+        {MAIN_NAV.map((section) => (
           <div key={section.title} className="mb-1">
             <div
               className="px-4 py-1.5 text-xs font-semibold uppercase tracking-wider"
@@ -177,27 +142,19 @@ export default function Sidebar() {
                   href={item.href}
                   className="flex items-center px-4 py-1.5 text-sm rounded-sm mx-1 transition-colors"
                   style={{
-                    color: isActive
-                      ? "var(--accent)"
-                      : "var(--text-secondary)",
-                    backgroundColor: isActive
-                      ? "var(--accent-muted)"
-                      : "transparent",
+                    color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                    backgroundColor: isActive ? "var(--accent-muted)" : "transparent",
                   }}
                   onMouseEnter={(e) => {
                     if (!isActive) {
-                      (e.currentTarget as HTMLElement).style.backgroundColor =
-                        "var(--bg-hover)";
-                      (e.currentTarget as HTMLElement).style.color =
-                        "var(--text-primary)";
+                      (e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg-hover)";
+                      (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isActive) {
-                      (e.currentTarget as HTMLElement).style.backgroundColor =
-                        "transparent";
-                      (e.currentTarget as HTMLElement).style.color =
-                        "var(--text-secondary)";
+                      (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+                      (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
                     }
                   }}
                 >
@@ -209,15 +166,13 @@ export default function Sidebar() {
         ))}
 
         {/* 구분선 */}
-        {(filteredMain.length > 0 || filteredIndependent.length > 0) && (
-          <div
-            className="my-2 mx-4 border-t"
-            style={{ borderColor: "var(--border)" }}
-          />
-        )}
+        <div
+          className="my-2 mx-4 border-t"
+          style={{ borderColor: "var(--border)" }}
+        />
 
         {/* 독립 섹션 */}
-        {filteredIndependent.map((item) => {
+        {INDEPENDENT_NAV.map((item) => {
           const isActive = pathname === item.href;
           return (
             <Link
@@ -230,18 +185,14 @@ export default function Sidebar() {
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {
-                  (e.currentTarget as HTMLElement).style.backgroundColor =
-                    "var(--bg-hover)";
-                  (e.currentTarget as HTMLElement).style.color =
-                    "var(--text-primary)";
+                  (e.currentTarget as HTMLElement).style.backgroundColor = "var(--bg-hover)";
+                  (e.currentTarget as HTMLElement).style.color = "var(--text-primary)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive) {
-                  (e.currentTarget as HTMLElement).style.backgroundColor =
-                    "transparent";
-                  (e.currentTarget as HTMLElement).style.color =
-                    "var(--text-secondary)";
+                  (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+                  (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)";
                 }
               }}
             >
@@ -249,16 +200,6 @@ export default function Sidebar() {
             </Link>
           );
         })}
-
-        {/* 필터 결과 없음 */}
-        {filteredMain.length === 0 && filteredIndependent.length === 0 && (
-          <p
-            className="px-4 py-4 text-sm"
-            style={{ color: "var(--text-muted)" }}
-          >
-            검색 결과 없음
-          </p>
-        )}
       </nav>
 
       {/* 리사이즈 drag handle */}

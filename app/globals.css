@@ -35,8 +35,8 @@
   --sidebar-min-width: 180px;
   --sidebar-max-width: 400px;
 
-  /* 타이틀 영역 */
-  --header-height: 90px;
+  /* 타이틀 영역 — 브레드크럼 + 검색창 2행 구조로 110px */
+  --header-height: 110px;
 }
 
 @theme inline {
