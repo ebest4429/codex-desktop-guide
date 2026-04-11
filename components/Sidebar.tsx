@@ -124,7 +124,7 @@ export default function Sidebar() {
       }}
     >
       {/* 네비게이션 목록 */}
-      <nav className="flex-1 py-3">
+      <nav className="flex-1 pt-3 pb-8">
         {/* 메인 섹션 */}
         {MAIN_NAV.map((section) => (
           <div key={section.title} className="mb-1">
