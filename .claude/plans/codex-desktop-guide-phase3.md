@@ -41,11 +41,11 @@
 > 취지: 핵심 기능 설명. 실제 사용 사례와 예시 포함.
 > 우선순위 2순위.
 
-- 🔲 `/features/multimodal` — 멀티모달 입력
-- 🔲 `/features/code-execution` — 코드 실행
-- 🔲 `/features/web-search` — 웹 검색
-- 🔲 `/features/file-handling` — 파일 처리
-- 🔲 `/features/extensions` — 확장 기능
+- ✅ `/features/multimodal` — 멀티모달 입력
+- ✅ `/features/code-execution` — 코드 실행
+- ✅ `/features/web-search` — 웹 검색
+- ✅ `/features/file-handling` — 파일 처리
+- ✅ `/features/extensions` — 확장 기능
 
 ### 4. 구독 / 스킬 / MCP 섹션 (3페이지)
 
