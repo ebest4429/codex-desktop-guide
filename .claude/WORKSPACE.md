@@ -11,34 +11,34 @@
 | 항목 | 값 |
 |------|-----|
 | PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
-| 현재 Phase | Phase 3 — 콘텐츠 구현 |
-| 상태 | ✅ 전체 29페이지 콘텐츠 완료. Phase 4 사전설계 존재 여부 확인 필요 |
-| 현재 플랜 | `.claude/plans/codex-desktop-guide-phase3.md` |
+| 현재 Phase | Phase 4 — 검색 기능 + 완성 + 배포 |
+| 상태 | 🔲 Phase 4 시작 전. 검색 라이브러리 협의 필요 |
+| 현재 플랜 | `.claude/plans/codex-desktop-guide-phase4.md` |
 | 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
 
 ---
 
 ## 남은 과제
 
-Phase 3 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide-phase3.md` 참조.
+Phase 4 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide-phase4.md` 참조.
 
-전체 대상 페이지 (29개):
-- 개요: /overview, /overview/get-started
-- 사용법: /usage/basic, /usage/chat, /usage/files
-- 주요기능: /features/multimodal, /features/code-execution, /features/web-search, /features/file-handling, /features/extensions
-- 메뉴소개: /menu/file, /menu/edit, /menu/view, /menu/tools, /menu/settings, /menu/project, /menu/threads, /menu/model-select, /menu/context-menu, /menu/skills-menu, /menu/mcp-menu, /menu/help, /menu/updates
-- 독립 섹션: /model, /context, /subscription, /skills, /threads, /mcp
+1. 검색 기능 구현 — 라이브러리 협의 후 결정
+2. 모바일 반응형 보완 — 사이드바 햄버거 메뉴, 1단 레이아웃
+3. 전체 QA — 29페이지 전수 확인
+4. 성능 최적화 (선택)
+5. 최종 배포 확인
 
-작업 우선순위: 1순위(개요+사용법) → 2순위(주요기능+구독/스킬/MCP) → 3순위(메뉴소개) → 4순위(모델/컨텍스트/스레드)
+> **검색 라이브러리**: Phase 4 진입 시 협의 후 결정. 사전 선택 금지.
+> **커스텀 도메인**: 사용자 결정 후 진행.
 
 ---
 
 ## 진행 이력
 
-### 2026-04-10 Phase 2 완료 → Phase 3 전환
+### 2026-04-12 Phase 3 완료 → Phase 4 전환
 
 | 항목 | 내용 |
 |------|------|
-| Phase 2 완료 | 레이아웃·테마·사이드바·공통컴포넌트·라우트·GitHub Pages 배포 전체 완료 |
+| Phase 3 완료 | 29개 페이지 전체 콘텐츠 구현 완료 |
 | 배포 URL | https://ebest4429.github.io/codex-desktop-guide/ |
-| Phase 3 진입 | 콘텐츠 구현 시작 |
+| Phase 4 진입 | 검색 기능 + 완성 단계 시작 |
