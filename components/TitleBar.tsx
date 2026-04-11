@@ -1,11 +1,10 @@
 "use client";
 
 // TitleBar — 전체 상단 타이틀 영역
-// 취지: 사이드바 검색창 제거 후 검색 기능을 타이틀 영역으로 통합.
-//       pathname 기반으로 현재 선택된 섹션·페이지를 중앙 상단에 표시.
-//       검색창은 타이틀 영역 내 하단 중앙 배치.
+// 취지: 검색 기능 포기 결정(2026-04-12)에 따라 검색창 제거.
+//       110px 높이를 유지하되 단일 행으로 사이트명·현재 경로를 크게 표시.
+//       pathname 기반으로 현재 선택된 섹션·페이지를 중앙에 표시.
 
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 // ── NAV 데이터 (Sidebar와 동일 구조 유지) ──────────────────────
@@ -83,7 +82,6 @@ function getPageInfo(pathname: string): { section: string | null; page: string }
 
 export default function TitleBar() {
   const pathname = usePathname();
-  const [search, setSearch] = useState("");
 
   const pageInfo = getPageInfo(pathname);
 
@@ -96,83 +94,38 @@ export default function TitleBar() {
         borderColor: "var(--border)",
       }}
     >
-      <div className="h-full flex flex-col justify-center px-6 gap-2">
+      <div className="h-full flex items-center px-8">
 
-        {/* 상단 행: 좌측 사이트명 + 중앙 선택 경로 */}
-        <div className="flex items-center">
-          {/* 좌측: 사이트 타이틀 */}
-          <div
-            className="text-base font-semibold flex-shrink-0"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Codex Desktop 가이드
-          </div>
-
-          {/* 중앙: 현재 선택 경로 */}
-          <div className="flex-1 flex justify-center">
-            {pageInfo && (
-              <div
-                className="flex items-center gap-2 text-sm"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                {pageInfo.section && (
-                  <>
-                    <span>{pageInfo.section}</span>
-                    <span style={{ color: "var(--text-muted)" }}>·</span>
-                  </>
-                )}
-                <span style={{ color: "var(--text-primary)" }}>{pageInfo.page}</span>
-              </div>
-            )}
-          </div>
-
-          {/* 우측: 균형용 여백 (사이트 타이틀과 동일 너비) */}
-          <div className="flex-shrink-0" style={{ width: "180px" }} />
+        {/* 좌측: 사이트 타이틀 */}
+        <div
+          className="text-2xl font-bold flex-shrink-0 tracking-tight"
+          style={{ color: "var(--text-primary)" }}
+        >
+          Codex Desktop 가이드
         </div>
 
-        {/* 하단 행: 중앙 배치 검색창 */}
-        <div className="flex justify-center">
-          <div
-            className="relative flex items-center"
-            style={{ width: "min(560px, 100%)" }}
-          >
-            {/* 검색 아이콘 */}
-            <svg
-              className="absolute left-3 pointer-events-none"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{ color: "var(--text-muted)" }}
+        {/* 중앙: 현재 선택 경로 */}
+        <div className="flex-1 flex justify-center">
+          {pageInfo && (
+            <div
+              className="flex items-center gap-2.5 text-base"
+              style={{ color: "var(--text-secondary)" }}
             >
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-
-            <input
-              type="text"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="검색... (준비 중)"
-              className="w-full h-9 rounded-lg pl-9 pr-4 text-sm outline-none transition-colors"
-              style={{
-                backgroundColor: "var(--bg-tertiary)",
-                border: "1px solid var(--border)",
-                color: "var(--text-primary)",
-              }}
-              onFocus={(e) => {
-                (e.target as HTMLInputElement).style.borderColor = "var(--accent)";
-              }}
-              onBlur={(e) => {
-                (e.target as HTMLInputElement).style.borderColor = "var(--border)";
-              }}
-            />
-          </div>
+              {pageInfo.section && (
+                <>
+                  <span className="font-medium">{pageInfo.section}</span>
+                  <span style={{ color: "var(--text-muted)" }}>·</span>
+                </>
+              )}
+              <span className="font-semibold text-lg" style={{ color: "var(--text-primary)" }}>
+                {pageInfo.page}
+              </span>
+            </div>
+          )}
         </div>
+
+        {/* 우측: 균형용 여백 (사이트 타이틀과 시각적 균형) */}
+        <div className="flex-shrink-0" style={{ width: "220px" }} />
 
       </div>
     </header>
