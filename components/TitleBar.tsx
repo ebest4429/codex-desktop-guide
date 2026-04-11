@@ -2,10 +2,14 @@
 
 // TitleBar — 전체 상단 타이틀 영역
 // 취지: 검색 기능 포기 결정(2026-04-12)에 따라 검색창 제거.
-//       110px 높이를 유지하되 단일 행으로 사이트명·현재 경로를 크게 표시.
-//       pathname 기반으로 현재 선택된 섹션·페이지를 중앙에 표시.
+//       모바일에서는 햄버거 버튼 표시 + 헤더 높이 축소.
+//       desktop: 110px / mobile: CSS 변수로 70px 적용.
 
 import { usePathname } from "next/navigation";
+
+interface TitleBarProps {
+  onMenuToggle: () => void;
+}
 
 // ── NAV 데이터 (Sidebar와 동일 구조 유지) ──────────────────────
 const MAIN_NAV = [
@@ -80,7 +84,7 @@ function getPageInfo(pathname: string): { section: string | null; page: string }
   return null;
 }
 
-export default function TitleBar() {
+export default function TitleBar({ onMenuToggle }: TitleBarProps) {
   const pathname = usePathname();
 
   const pageInfo = getPageInfo(pathname);
@@ -94,18 +98,32 @@ export default function TitleBar() {
         borderColor: "var(--border)",
       }}
     >
-      <div className="h-full flex items-center px-8">
+      <div className="h-full flex items-center px-4 md:px-8 gap-3">
+
+        {/* 모바일 햄버거 버튼 */}
+        <button
+          onClick={onMenuToggle}
+          className="md:hidden flex-shrink-0 p-1.5 rounded-md transition-colors"
+          style={{ color: "var(--text-secondary)" }}
+          aria-label="메뉴 열기"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
 
         {/* 좌측: 사이트 타이틀 */}
         <div
-          className="text-2xl font-bold flex-shrink-0 tracking-tight"
+          className="text-lg md:text-2xl font-bold flex-shrink-0 tracking-tight"
           style={{ color: "var(--text-primary)" }}
         >
           Codex Desktop 가이드
         </div>
 
-        {/* 중앙: 현재 선택 경로 */}
-        <div className="flex-1 flex justify-center">
+        {/* 중앙: 현재 선택 경로 (모바일에서 숨김) */}
+        <div className="hidden md:flex flex-1 justify-center">
           {pageInfo && (
             <div
               className="flex items-center gap-2.5 text-base"
@@ -124,8 +142,8 @@ export default function TitleBar() {
           )}
         </div>
 
-        {/* 우측: 균형용 여백 (사이트 타이틀과 시각적 균형) */}
-        <div className="flex-shrink-0" style={{ width: "220px" }} />
+        {/* 우측 균형용 여백 — 데스크톱에서만 */}
+        <div className="hidden md:block flex-shrink-0" style={{ width: "220px" }} />
 
       </div>
     </header>

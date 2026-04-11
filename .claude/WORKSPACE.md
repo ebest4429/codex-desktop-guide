@@ -12,7 +12,7 @@
 |------|-----|
 | PROJECT | codex-desktop-guide (Codex Desktop 가이드 웹사이트) |
 | 현재 Phase | Phase 4 — 검색 기능 + 완성 + 배포 |
-| 상태 | 🔄 진행 중 — 검색 기능 포기 결정. TitleBar 검색창 제거 + 폰트 확대 완료. 모바일 반응형 보완 예정 |
+| 상태 | 🔄 진행 중 — 모바일 반응형 보완 완료. 전체 QA 예정 |
 | 현재 플랜 | `.claude/plans/codex-desktop-guide-phase4.md` |
 | 마스터플랜 | `.claude/plans/codex-desktop-guide-master.md` |
 
@@ -22,8 +22,7 @@
 
 Phase 4 작업 항목 순서대로 진행. 상세 내용은 `codex-desktop-guide-phase4.md` 참조.
 
-1. 모바일 반응형 보완 — 사이드바 햄버거 메뉴, 1단 레이아웃 (결과 확인 후 재협의)
-2. 전체 QA — 29페이지 전수 확인
+1. 전체 QA — 29페이지 전수 확인
 3. 성능 최적화 (선택)
 4. 최종 배포 확인
 

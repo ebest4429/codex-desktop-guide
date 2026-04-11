@@ -2,7 +2,8 @@
 
 // Sidebar — 네비게이션 전용
 // 취지: 타이틀 영역에 검색창 통합 후 사이드바 검색창·필터 로직 완전 제거.
-//       순수 네비게이션 목록만 유지. 리사이즈 기능은 유지.
+//       순수 네비게이션 목록만 유지. 리사이즈 기능은 데스크톱에서만 유지.
+//       모바일: fixed 오버레이로 햄버거 토글. isOpen/onClose prop으로 제어.
 
 import { useRef, useCallback, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
@@ -67,7 +68,12 @@ const SIDEBAR_DEFAULT_WIDTH = 260;
 const SIDEBAR_MIN_WIDTH = 180;
 const SIDEBAR_MAX_WIDTH = 400;
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
   const [width, setWidth] = useState(SIDEBAR_DEFAULT_WIDTH);
   const isDragging = useRef(false);
@@ -114,7 +120,14 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="relative h-full flex-shrink-0 flex flex-col border-r overflow-y-auto"
+      className={[
+        "flex-shrink-0 flex flex-col border-r overflow-y-auto transition-transform duration-200 ease-in-out",
+        // 모바일: fixed 오버레이 — 햄버거 토글로 열고 닫음
+        "fixed inset-y-0 left-0 z-40 h-full",
+        isOpen ? "translate-x-0" : "-translate-x-full",
+        // 데스크톱: 일반 레이아웃 내 배치, 리사이즈 가능
+        "md:relative md:translate-x-0 md:z-auto",
+      ].join(" ")}
       style={{
         width,
         minWidth: SIDEBAR_MIN_WIDTH,
@@ -123,6 +136,21 @@ export default function Sidebar() {
         borderColor: "var(--border)",
       }}
     >
+      {/* 모바일 닫기 버튼 */}
+      <div className="md:hidden flex justify-end px-3 pt-3">
+        <button
+          onClick={onClose}
+          className="p-1.5 rounded-md transition-colors"
+          style={{ color: "var(--text-secondary)" }}
+          aria-label="메뉴 닫기"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
       {/* 네비게이션 목록 */}
       <nav className="flex-1 pt-3 pb-8">
         {/* 메인 섹션 */}
